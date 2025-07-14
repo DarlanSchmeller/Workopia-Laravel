@@ -7,16 +7,14 @@
 </head>
 <body>
     <h1>{{ $title }}</h1>
-    @if(!empty($jobs))
-        <ul>
-            @foreach($jobs as $job)
+    <ul>
+        @forelse($jobs as $job)
             <li>
                 {{ $job }}
             </li>
-            @endforeach
-        </ul>
-    @else
-        <p>No jobs found</p>
-    @endif
+        @empty
+            <li>No job listings found</li>
+        @endforelse
+    </ul>
 </body>
 </html>
