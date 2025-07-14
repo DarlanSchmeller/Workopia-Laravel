@@ -21,4 +21,15 @@ class JobController extends Controller
     public function create() {
         return view('jobs.create');
     }
+
+    public function show(string $id) {
+        return 'Showing job ' . $id;
+    }
+
+    public function store(Request $request) {
+        $title = $request->input('title');
+        $description = $request->input('description');
+
+        return 'Title: ' . $title . ' Description: ' . $description;
+    }
 }
