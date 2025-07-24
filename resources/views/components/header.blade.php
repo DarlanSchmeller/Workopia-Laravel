@@ -1,30 +1,17 @@
-@php
-    $isActive = request()->is('jobs');
-    echo $isActive ? 'active' : 'not active';
-@endphp
-
 <header class="bg-blue-900 text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
         <h1 class="text-3xl font-semibold">
             <a href="{{ url('/') }}">Workopia</a>
         </h1>
         <nav class="hidden md:flex items-center space-x-4">
-            <a href="{{ url('/jobs') }}"
-                class="text-white hover:underline py-2 {{ request()->is('jobs') ? 'text-yellow-500 font-bold' : '' }}">All
-                Jobs</a>
-            <a href="{{ url('/jobs/saved') }}"
-                class="text-white hover:underline py-2 {{ request()->is('jobs/saved') ? 'text-yellow-500 font-bold' : '' }}">Saved
-                Jobs</a>
-            <a href="{{ url('/login') }}"
-                class="text-white hover:underline py-2 {{ request()->is('login') ? 'text-yellow-500 font-bold' : '' }}">Login</a>
-            <a href="{{ url('/register') }}"
-                class="text-white hover:underline py-2 {{ request()->is('register') ? 'text-yellow-500 font-bold' : '' }}">Register</a>
-            <a href="{{ url('/dashboard') }}"
-                class="text-white hover:underline py-2 {{ request()->is('dashboard') ? 'text-yellow-500 font-bold' : '' }}">
-                <i class="fa fa-gauge mr-1"></i> Dashboard
-            </a>
+            <x-nav-link url="/" :active="request()->is('/')">Home</x-nav-link>
+            <x-nav-link url="/jobs" :active="request()->is('jobs')">All Jobs</x-nav-link>
+            <x-nav-link url="/jobs/saved" :active="request()->is('jobs/saved')">Saved Jobs</x-nav-link>
+            <x-nav-link url="/login" :active="request()->is('login')">Login</x-nav-link>
+            <x-nav-link url="/register" :active="request()->is('register')">Register</x-nav-link>
+            <x-nav-link url="/dashboard" :active="request()->is('dashboard')" icon="gauge">Dashboard</x-nav-link>
             <a href="{{ url('/jobs/create') }}"
-                class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded hover:shadow-md transition duration-300 {{ request()->is('jobs/create') ? 'text-yellow-500 font-bold' : '' }}">
+                class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded hover:shadow-md transition duration-300 {{ request()->is('jobs/create') ? 'text-yellow-1000 font-bold' : '' }}">
                 <i class="fa fa-edit"></i> Create Job
             </a>
         </nav>
