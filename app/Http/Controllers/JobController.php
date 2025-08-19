@@ -15,7 +15,7 @@ class JobController extends Controller
     {
         $jobs = Job::all();
         
-        return view('jobs.index', compact('jobs'));
+        return view('jobs.index')->with('jobs', $jobs);
     }
 
     /**
@@ -37,9 +37,9 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): string
+    public function show(Job $job): View
     {
-        return 'show';
+        return view('jobs.show')->with('job', $job);
     }
 
     /**
