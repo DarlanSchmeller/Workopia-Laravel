@@ -14,5 +14,5 @@
         Show All Jobs
     </a>
 
-    <x-bottom-banner/>
+    <x-bottom-banner />
 </x-layout>
