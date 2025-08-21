@@ -37,7 +37,7 @@ class JobController extends Controller
             'description' => 'required|string|max:255',
             'salary' => 'required|integer',
             'tags' => 'nullable|string',
-            'job' => 'required|string',
+            'job_type' => 'required|string',
             'remote' => 'required|boolean',
             'requirements' => 'nullable|string',
             'benefits' => 'nullable|string',
