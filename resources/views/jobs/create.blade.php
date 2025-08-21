@@ -62,7 +62,7 @@
                 placeholder="Enter Company Description" />
 
             <x-inputs.text id="company_website" name="company_website" label="Company Website"
-                placeholder="Enter website" />
+                placeholder="Enter website" type="url" />
 
             <x-inputs.text id="contact_phone" name="contact_phone" label="Contact Phone" placeholder="Enter phone" />
 
