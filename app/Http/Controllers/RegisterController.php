@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -16,8 +18,22 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function store(): RedirectResponse
+    // @desc Store user in database
+    // @route POST /register
+    public function store(Request $request): RedirectResponse
     {
-        return redirect()->route('/');
+        $validatedData = $request->validate([
+            'name'=>'required|string|max:100',
+            'email'=>'required|string|email|max:100|unique:users',
+            'password'=>'required|string|min:8|confirmed',
+        ]);
+
+        // Hash password
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        // Create the user
+        $user = User::create($validatedData);
+
+        return redirect()->route('login')->with('success', 'You are registered and can now login!');
     }
 }
