@@ -6,8 +6,10 @@
             <x-inputs.text id="name" name="name" placeholder="Full name" />
             <x-inputs.text id="email" type="email" name="email" placeholder="Email Address" />
             <x-inputs.text id="password" type="password" name="password" placeholder="Password" />
-            <x-inputs.text id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password" />
-            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none">
+            <x-inputs.text id="password_confirmation" type="password" name="password_confirmation"
+                placeholder="Confirm Password" />
+            <button type="submit"
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none">
                 Register
             </button>
 

@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
-    // @desc Show all job listings
-    // @route GET /jobs
+    // @desc    Show all job listings
+    // @route   GET /jobs
     public function index(): View
     {
         $jobs = Job::all();
@@ -19,15 +19,15 @@ class JobController extends Controller
         return view('jobs.index')->with('jobs', $jobs);
     }
 
-    // @desc Show create job form
-    // @route GET /jobs/create
+    // @desc    Show create job form
+    // @route   GET /jobs/create
     public function create()
     {
         return view('jobs.create');
     }
 
-    // @desc Save job to database
-    // @route POST /jobs
+    // @desc    Save job to database
+    // @route   POST /jobs
     public function store(Request $request): RedirectResponse
     {
         $validatedData = $request->validate([
@@ -69,22 +69,22 @@ class JobController extends Controller
         return redirect()->route('jobs.index')->with('success', 'Job listing created successfully!');
     }
 
-    // @desc Display a single job listing
-    // @route GET /jobs/{$id}
+    // @desc    Display a single job listing
+    // @route   GET /jobs/{$id}
     public function show(Job $job): View
     {
         return view('jobs.show')->with('job', $job);
     }
 
-    // @desc Show edit job form
-    // @route GET /jobs/{$id}/edit
+    // @desc    Show edit job form
+    // @route   GET /jobs/{$id}/edit
     public function edit(Job $job): View
     {
         return view('jobs.edit')->with('job', $job);
     }
 
-    // @desc Update job listing
-    // @route PUT /jobs/{$id}
+    // @desc    Update job listing
+    // @route   PUT /jobs/{$id}
     public function update(Request $request, Job $job): string
     {
        $validatedData = $request->validate([
@@ -126,8 +126,8 @@ class JobController extends Controller
         return redirect()->route('jobs.index')->with('success', 'Job listing updated successfully!');
     }
 
-    // @desc Delete a job listing
-    // @route DELETE /jobs/{$id}
+    // @desc    Delete a job listing
+    // @route   DELETE /jobs/{$id}
     public function destroy(Job $job): RedirectResponse
     {
         // If logo, then delete it

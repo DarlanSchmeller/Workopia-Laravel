@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
 
-    // @desc Show register form
-    // @route GET /register
+    // @desc    Show register form
+    // @route   GET /register
     public function register(): View
     {
         return view('auth.register');
