@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Job;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
@@ -51,9 +51,9 @@ class JobController extends Controller
             'company_logo' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
             'company_website' => 'nullable|url',
         ]);
-        
-        // Hardcoded user ID
-        $validatedData['user_id'] = 1;
+
+        // Add user id to listing
+        $validatedData['user_id'] = Auth::user()->id;
 
         // Check for image
         if ($request->hasFile('company_logo')) {
