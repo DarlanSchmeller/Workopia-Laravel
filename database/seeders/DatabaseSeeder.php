@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $originalLogosFolder = public_path('logos'); 
+        $originalLogosFolder = public_path('logos');
         $logoStorageFolder = storage_path('app/public/logos');
 
         // Make sure destination exists
@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
         // Re-enable foreign key checks
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
+        $this->call(TestUserSeeder::class);
         $this->call(RandomUserSeeder::class);
         $this->call(JobSeeder::class);
     }
