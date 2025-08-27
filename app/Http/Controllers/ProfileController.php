@@ -29,9 +29,9 @@ class ProfileController extends Controller
         $user->email = $request->input('email');
 
         // Handle avatar upload
-        if($request->hasFile('avatar')) {
+        if ($request->hasFile('avatar')) {
             // Delete old avatar if exists
-            if($user->avatar) {
+            if ($user->avatar) {
                 Storage::delete('public/' . $user->avatar);
             }
 

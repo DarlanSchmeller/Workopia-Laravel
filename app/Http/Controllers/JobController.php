@@ -19,7 +19,7 @@ class JobController extends Controller
     public function index(): View
     {
         $jobs = Job::all();
-        
+
         return view('jobs.index')->with('jobs', $jobs);
     }
 
@@ -144,14 +144,14 @@ class JobController extends Controller
         $this->authorize('delete', $job);
 
         // If logo, then delete it
-        if($job->company_logo) {
+        if ($job->company_logo) {
             Storage::disk('public')->delete($job->company_logo);
         }
 
         $job->delete();
 
         // Check if request came from dashboard
-        if(request()->query('from') == 'dashboard') {
+        if (request()->query('from') == 'dashboard') {
             return redirect()->route('dashboard')->with('success', 'Job deleted successfully!');
         }
 
