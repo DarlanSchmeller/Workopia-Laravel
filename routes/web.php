@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\JobController;
@@ -8,10 +9,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-// Route::resource('/jobs', JobController::class);
 
 Route::resource('/jobs', JobController::class)->middleware('auth')->only(['create', 'edit', 'update', 'destroy']);
 Route::resource('/jobs', JobController::class)->except(['create', 'edit', 'update', 'destroy']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::middleware('guest')->group(function() {
     Route::get('/register', [RegisterController::class, 'register'])->name('register');
