@@ -26,7 +26,8 @@ Route::middleware('guest')->group(function() {
 
 Route::middleware('auth')->group(function() {
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmark');
+    Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks');
+    Route::post('/bookmarks/{job}', [BookmarkController::class, 'store'])->name('bookmarks.store');
 });
 
 
