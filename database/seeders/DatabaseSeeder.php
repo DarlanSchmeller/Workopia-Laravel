@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
         DB::table('job_listings')->truncate();
         DB::table('users')->truncate();
         DB::table('job_user_bookmarks')->truncate();
+        DB::table('applicants')->truncate();
 
         // Re-enable foreign key checks
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
