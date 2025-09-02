@@ -12,6 +12,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>{{ $title ?? 'Workopia | Find and List Jobs' }}</title>
+    @stack(section: 'external.stylesheets')
 </head>
 
 <body class="bg-gray-100">
@@ -33,4 +34,5 @@
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
+ @stack('body.scripts')
 </html>

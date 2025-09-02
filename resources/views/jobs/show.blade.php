@@ -1,3 +1,19 @@
+@push('body.scripts')
+    <script type="module" src="{{asset('js/map.js')}}"></script>
+    <script>
+        let url = 'https://nominatim.openstreetmap.org/search?city="{{$job->city}}"&state={{$job->state}}&postalcode={{$job->zipcode}}&format=geocodejson';
+    </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""></script>
+@endpush
+ 
+@push('external.stylesheets')
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+@endpush
+
 <x-layout>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <section class="md:col-span-3">
@@ -78,7 +94,7 @@
                         and attach your resume.
                     </p>
 
-                    <div x-cloak x-data="{ open: false }">
+                    <div x-cloak x-data="{ open: false }" id="applicant-form">
                         <button @click="open = true"
                             class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base
                         font-medium cursor-pointer text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
