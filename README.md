@@ -2,6 +2,8 @@
 
 Workopia is a job listing website built with Laravel 11.
 
+<img src="./public/images/screen.png" alt="" />
+
 ## Features
 
 -   Job Listing CRUD
