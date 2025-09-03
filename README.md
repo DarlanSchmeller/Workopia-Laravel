@@ -49,12 +49,6 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-Add your mapbox API key:
-
-```
-MAPBOX_API_KEY=
-```
-
 #### Run Migrations
 
 ```
