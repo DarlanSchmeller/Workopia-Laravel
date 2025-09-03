@@ -49,7 +49,7 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-Add your mabox API key:
+Add your mapbox API key:
 
 ```
 MAPBOX_API_KEY=
